@@ -41,7 +41,20 @@ namespace Login.Models
                 OnPropertyChanged();
             }
         }
+        private string _email;
+        public string Email
+        {
+            get { return _email; }
+            set
+            {
+                if (_email == value)
+                    return;
 
+                _email = value;
+
+                OnPropertyChanged();
+            }
+        }
 
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

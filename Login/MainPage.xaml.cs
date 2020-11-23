@@ -9,6 +9,7 @@ using Login.Models;
 using SQLite;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using Login.Views;
 
 namespace Login
 {
@@ -46,26 +47,20 @@ namespace Login
             base.OnAppearing();
         }
 
-       
+
         async void OnAdd(object sender, EventArgs e)
         {
 
-            var login = new LoginModel { Username = usernameEntry.Text };
-
-            await _connection.InsertAsync(login);
-
-            _loginModel.Add(login);
-
-            usernameEntry = null;
+            await Navigation.PushAsync(new Registration());
         }
-        async void OnUpdate(object sender, EventArgs e)
-        {
+        //async void OnUpdate(object sender, EventArgs e)
+        //{
 
-            var item = _loginModel[0];
-            item.Username += " UPDATED";
+        //    var item = _loginModel[0];
+        //    item.Username += " UPDATED";
 
-            await _connection.UpdateAsync(item);
+        //    await _connection.UpdateAsync(item);
 
-        }
+        //}
     }
 }
